@@ -40,7 +40,7 @@ module program_counter_test();
     
     initial begin
         CLK = 1'b1;
-        RES = 1'b0;
+        RES = 1'b1;
         write = 1'b0;
         PC_next = 32'h4;
     end
@@ -50,6 +50,7 @@ module program_counter_test();
     end
     
     always begin
+        #(CLK_PERIOD)       RES = 1'b0;
         #(CLK_PERIOD)       RES = 1'b1;
         #(CLK_PERIOD * 2)   write = 1'b1;
         #(CLK_PERIOD)       write = 1'b0;
