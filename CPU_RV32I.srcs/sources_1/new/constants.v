@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 02/16/2025 02:52:06 PM
+// Create Date: 02/16/2025 06:01:25 PM
 // Design Name: 
 // Module Name: constants
 // Project Name: 
@@ -20,8 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-`ifndef __DEFINE_CONSTANT__
-`define __DEFINE_CONSTANT__
+`ifndef __CONSTANTS__
+`define __CONSTANTS__
 
 
 `define ERROR       3'b000
