@@ -1,0 +1,9 @@
+*
+!.gitignore
+!*/
+
+!*.xpr
+!*.v
+!*.xdc
+
+*.sim/
