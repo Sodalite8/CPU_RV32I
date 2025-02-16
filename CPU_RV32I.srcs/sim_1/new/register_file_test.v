@@ -22,8 +22,8 @@
 
 module register_file_test();
     reg             CLK;
-    reg     [4:0]   rs1, rs2, rd;
     reg             write;
+    reg     [4:0]   rs1, rs2, rd;
     reg     [31:0]  data_in;
     wire    [31:0]  data_out1, data_out2;
     
@@ -32,10 +32,10 @@ module register_file_test();
     
     register_file register_file(
         .CLK(CLK),
+        .write(write), 
         .rs1(rs1),
         .rs2(rs2),
         .rd(rd),
-        .write(write), 
         .data_in(data_in),
         .data_out1(data_out1),
         .data_out2(data_out2)

@@ -22,8 +22,8 @@
 
 module program_counter_test();
     reg             CLK, RES;
+    reg             write;
     reg     [31:0]  PC_next;
-    reg             PC_write;
     wire    [31:0]  PC;
     
     parameter       CLK_PERIOD = 100;
@@ -33,7 +33,7 @@ module program_counter_test();
         .CLK(CLK),
         .RES(RES),
         .PC_next(PC_next),
-        .PC_write(PC_write),
+        .write(write),
         .PC(PC)
     );
     
@@ -41,8 +41,8 @@ module program_counter_test();
     initial begin
         CLK = 1'b1;
         RES = 1'b1;
+        write = 1'b0;
         PC_next = 32'h4;
-        PC_write = 1'b0;
     end
     
     always begin
@@ -51,8 +51,8 @@ module program_counter_test();
     
     always begin
         #(CLK_PERIOD)       RES = 1'b0;
-        #(CLK_PERIOD * 2)   PC_write = 1'b1;
-        #(CLK_PERIOD)       PC_write = 1'b0;
+        #(CLK_PERIOD * 2)   write = 1'b1;
+        #(CLK_PERIOD)       write = 1'b0;
                             PC_next = 32'h8;
         #(CLK_PERIOD * 4)   $finish;       
     end

@@ -21,10 +21,9 @@
 
 
 module program_counter(
-    input               CLK, 
-    input               RES, 
+    input               CLK, RES, 
+    input               write, 
     input       [31:0]  PC_next, 
-    input               PC_write, 
     output reg  [31:0]  PC
 );
 
@@ -34,7 +33,7 @@ always @(posedge CLK) begin
     if(RES == 1'b1)
         PC <= 32'h0;
     // PC更新
-    else if(PC_write == 1'b1)
+    else if(write == 1'b1)
         PC <= PC_next;
     // PC維持
     else
