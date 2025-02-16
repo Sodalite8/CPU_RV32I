@@ -33,7 +33,7 @@ module control_unit(
     output reg  [1:0]   ALU_source2,
     output reg          PC_adder_source1,
     output reg          inst_or_data, mem_read, mem_write, ALU_or_mem,
-    output reg          PC_write
+    output reg          plus_four_PC
 );
     reg [2:0]   current_state, next_state;
 
@@ -102,14 +102,16 @@ module control_unit(
         mem_read            <= 1'b0;
         mem_write           <= 1'b0;
         ALU_or_mem          <= 1'b0;
-        PC_write            <= 1'b0;
+        plus_four_PC        <= 1'b0;
         
         case(current_state)
             `FETCH : begin
-                inst_write  <= 1'b1;
+                inst_write      <= 1'b1;
+                mem_read        <= 1'b1;
             end
             
             `DECODE : begin
+                plus_four_PC    <= 1'b1;
             end
             
             `EXECUTE : begin
