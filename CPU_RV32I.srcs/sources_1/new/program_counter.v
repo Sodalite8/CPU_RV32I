@@ -30,7 +30,7 @@ module program_counter(
 
 always @(posedge CLK) begin
     // リセット
-    if(RES == 1'b1)
+    if(RES == 1'b0)
         PC <= 32'h0;
     // PC更新
     else if(write == 1'b1)
