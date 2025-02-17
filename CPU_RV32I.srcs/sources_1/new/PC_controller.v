@@ -28,7 +28,7 @@ module PC_controller(
 );
 
 
-always @(is_decode or is_branch or is_jump or func3) begin
+always @(is_decode or is_branch or is_jump or func3 or ALU_out) begin
     PC_write    <= 1'b0;
     PC_source   <= 1'b0;
 
@@ -50,7 +50,7 @@ always @(is_decode or is_branch or is_jump or func3) begin
                     PC_write    <= 1'b1;
                     PC_source   <= 1'b1;
                 end
-            end
+            end 
         endcase
     end
     
