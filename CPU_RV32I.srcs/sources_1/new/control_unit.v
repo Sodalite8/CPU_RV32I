@@ -33,7 +33,7 @@ module control_unit(
     output reg  [1:0]   ALU_source2,
     output reg          PC_adder_source1,
     output reg          inst_or_data, mem_read, mem_write, ALU_or_mem,
-    output reg          plus_four_PC
+    output reg          is_decode, is_branch, is_jump
 );
     reg [2:0]   current_state, next_state;
 
@@ -102,7 +102,9 @@ module control_unit(
         mem_read            <= 1'b0;
         mem_write           <= 1'b0;
         ALU_or_mem          <= 1'b0;
-        plus_four_PC        <= 1'b0;
+        is_decode           <= 1'b0;
+        is_branch           <= 1'b0;
+        is_jump             <= 1'b0;
         
         case(current_state)
             `FETCH : begin
@@ -111,7 +113,7 @@ module control_unit(
             end
             
             `DECODE : begin
-                plus_four_PC    <= 1'b1;
+                is_decode       <= 1'b1;
             end
             
             `EXECUTE : begin
@@ -130,6 +132,7 @@ module control_unit(
                         ALU_source1         <= 1'b1;
                         ALU_source2         <= 2'b10;
                         PC_adder_source1    <= 1'b1;
+                        is_jump             <= 1'b1;
                     end
                     
                     `OP_I_TYPE_LOAD : begin
@@ -144,6 +147,7 @@ module control_unit(
                     
                     `OP_B_TYPE : begin
                         inst_type           <= `INST_BRANCH;
+                        is_branch           <= 1'b1;
                     end
                     
                     `OP_U_TYPE_LUI : begin
@@ -161,6 +165,7 @@ module control_unit(
                         inst_type           <= `INST_JAL;
                         ALU_source1         <= 1'b1;
                         ALU_source2         <= 2'b10;
+                        is_jump             <= 1'b1;
                     end
                         
                     default : begin
