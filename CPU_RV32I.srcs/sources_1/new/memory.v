@@ -32,6 +32,7 @@ module memory(
     
     assign data_out =   (read == 1'b0) ? data_out :
                         (addr == 32'h0) ? 32'h00000000 :
+                        (addr == 32'h4) ? 32'h00000004 :
                         {mem[addr], mem[addr + 1], mem[addr + 2], mem[addr + 3]};
     
     always @(posedge CLK) begin
