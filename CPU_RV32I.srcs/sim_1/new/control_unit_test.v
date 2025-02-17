@@ -60,23 +60,35 @@ module control_unit_test();
     end
     
     always begin
-        #(CLK_PERIOD / 2)   CLK = ~CLK;
+        #(CLK_PERIOD / 2)
+            CLK = ~CLK;
     end
     
     initial begin
-                            RES = 1'b1;
-                            opcode = 7'b0000000;
-        #(CLK_PERIOD)       RES = 1'b0;
-                            opcode = 7'b0110011;
-        #(CLK_PERIOD)       RES = 1'b1;
-        #(CLK_PERIOD * 3)   opcode = 7'b0010011;
-        #(CLK_PERIOD * 4)   opcode = 7'b1100111;
-        #(CLK_PERIOD * 4)   opcode = 7'b1101111;
-        #(CLK_PERIOD * 4)   opcode = 7'b0000011;
-        #(CLK_PERIOD * 5)   opcode = 7'b0100011;
-        #(CLK_PERIOD * 4)   opcode = 7'b1100011;
-        #(CLK_PERIOD * 3)   opcode = 7'b0110111;
-        #(CLK_PERIOD * 4)   opcode = 7'b0010111;
-        #(CLK_PERIOD * 4)   $finish;
+            RES = 1'b1;
+            opcode = 7'b0000000;
+        #CLK_PERIOD
+            RES = 1'b0;
+            opcode = 7'b0110011;
+        #CLK_PERIOD
+            RES = 1'b1;
+        #(CLK_PERIOD * 3)
+            opcode = 7'b0010011;
+        #(CLK_PERIOD * 4)
+            opcode = 7'b1100111;
+        #(CLK_PERIOD * 4)
+            opcode = 7'b1101111;
+        #(CLK_PERIOD * 4)
+            opcode = 7'b0000011;
+        #(CLK_PERIOD * 5)
+            opcode = 7'b0100011;
+        #(CLK_PERIOD * 4)
+            opcode = 7'b1100011;
+        #(CLK_PERIOD * 3)
+            opcode = 7'b0110111;
+        #(CLK_PERIOD * 4)
+            opcode = 7'b0010111;
+        #(CLK_PERIOD * 4)
+            $finish;
     end
 endmodule

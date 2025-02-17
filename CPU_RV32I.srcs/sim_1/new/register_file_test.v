@@ -52,19 +52,26 @@ module register_file_test();
     end
     
     always begin
-        #(CLK_PERIOD / 2)   CLK = ~CLK;
+        #(CLK_PERIOD / 2)
+            CLK = ~CLK;
     end
     
     always begin
-        #(CLK_PERIOD)       rs2 = 5'h1;
-                            rd = 5'h2;
-        #(CLK_PERIOD)       rs2 = 5'h2;
-                            rd = 5'h3;
-        #(CLK_PERIOD)       rs2 = 5'h3;
-                            rd = 5'h4;
-                            write = 1'b0;
-        #(CLK_PERIOD)       rs2 = 5'h4;
-        #(CLK_PERIOD)       write = 1'b1;
-        #(CLK_PERIOD * 4)   $finish;       
+        #CLK_PERIOD
+            rs2 = 5'h1;
+            rd = 5'h2;
+        #CLK_PERIOD
+            rs2 = 5'h2;
+            rd = 5'h3;
+        #CLK_PERIOD
+            rs2 = 5'h3;
+            rd = 5'h4;
+            write = 1'b0;
+        #CLK_PERIOD
+            rs2 = 5'h4;
+        #CLK_PERIOD
+            write = 1'b1;
+        #(CLK_PERIOD * 4)
+            $finish;       
     end
 endmodule

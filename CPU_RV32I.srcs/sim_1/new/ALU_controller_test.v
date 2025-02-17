@@ -38,24 +38,36 @@ module ALU_controller_test();
 
 
     initial begin
-                    inst_type   = 4'b0000;
-                    func3       = 3'b000;
-                    func7       = 7'b0000000;
-        #CLK_PERIOD inst_type   = 4'b0001;
-                    func3       = 3'b000;
-                    func7       = 7'b0000000;
-        #CLK_PERIOD func7       = 7'b0100000;
-        #CLK_PERIOD func3       = 3'b001;
-                    func7       = 7'b0000000;
-        #CLK_PERIOD func3       = 3'b010;
-        #CLK_PERIOD func3       = 3'b011;
-        #CLK_PERIOD func3       = 3'b100;
-        #CLK_PERIOD func3       = 3'b101;
-        #CLK_PERIOD func7       = 7'b0100000;
-        #CLK_PERIOD func3       = 3'b110;
-                    func7       = 7'b0000000;
-        #CLK_PERIOD func3       = 3'b111;
-        #CLK_PERIOD inst_type   = 4'b1111;
-        #CLK_PERIOD $finish;
+            inst_type   = 4'b0000;
+            func3       = 3'b000;
+            func7       = 7'b0000000;
+        #CLK_PERIOD
+            inst_type   = 4'b0001;
+            func3       = 3'b000;
+            func7       = 7'b0000000;
+        #CLK_PERIOD
+            func7       = 7'b0100000;
+        #CLK_PERIOD
+            func3       = 3'b001;
+            func7       = 7'b0000000;
+        #CLK_PERIOD
+            func3       = 3'b010;
+        #CLK_PERIOD
+            func3       = 3'b011;
+        #CLK_PERIOD
+            func3       = 3'b100;
+        #CLK_PERIOD
+            func3       = 3'b101;
+        #CLK_PERIOD
+            func7       = 7'b0100000;
+        #CLK_PERIOD
+            func3       = 3'b110;
+            func7       = 7'b0000000;
+        #CLK_PERIOD
+            func3       = 3'b111;
+        #CLK_PERIOD
+            inst_type   = 4'b1111;
+        #CLK_PERIOD
+            $finish;
     end
 endmodule
