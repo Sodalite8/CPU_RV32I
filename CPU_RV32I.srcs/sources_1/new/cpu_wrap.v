@@ -21,7 +21,7 @@
 
 
 module cpu_wrap(
-    input CLK, 
+    input CLK,
     input RES
 );
 

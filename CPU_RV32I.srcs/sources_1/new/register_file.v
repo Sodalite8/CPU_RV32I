@@ -21,10 +21,10 @@
 
 
 module register_file(
-    input           CLK, 
-    input           write, 
-    input   [4:0]   rs1, rs2, rd, 
-    input   [31:0]  data_in, 
+    input           CLK,
+    input           write,
+    input   [4:0]   rs1, rs2, rd,
+    input   [31:0]  data_in,
     output  [31:0]  data_out1, data_out2
 );
     reg [31:0]  register[31:0];

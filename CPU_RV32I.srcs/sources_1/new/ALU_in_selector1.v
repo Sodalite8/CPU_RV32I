@@ -21,8 +21,8 @@
 
 
 module ALU_in_selector1(
-    input           ALU_source1, 
-    input   [31:0]  reg_out1, PC, 
+    input           ALU_source1,
+    input   [31:0]  reg_out1, PC,
     output  [31:0]  ALU_in1
 );
 

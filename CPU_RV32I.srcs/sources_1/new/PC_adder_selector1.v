@@ -21,8 +21,8 @@
 
 
 module PC_adder_selector1(
-    input           PC_adder_source1, 
-    input   [31:0]  PC, reg_out1, 
+    input           PC_adder_source1,
+    input   [31:0]  PC, reg_out1,
     output  [31:0]  PC_adder_in1
 );
     
