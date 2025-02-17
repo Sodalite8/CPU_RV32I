@@ -66,6 +66,8 @@
 `define ALU_AND     4'b1000
 `define ALU_OR      4'b1001
 `define ALU_XOR     4'b1010
+`define ALU_LUI     4'b1011
+`define ALU_AUIPC   4'b1100
 
 
 `endif
